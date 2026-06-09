@@ -4,7 +4,8 @@ project(lab4)
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(lab4 main.cpp
-        atd/BinaryHeap.h)
+        atd/BinaryHeap.h
+        atd/FixedQueue.h)
 
 add_executable(lab4_tests
         tests/test.cpp
@@ -30,4 +31,5 @@ add_executable(lab4_tests
         tests/testDeque.cpp
         tests/testHanoi.cpp
         tests/testBinaryHeap.cpp
+        tests/testFixedQueue.cpp
 )
