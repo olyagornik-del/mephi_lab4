@@ -10,6 +10,7 @@ void testStackAll();
 void testQueueAll();
 void testDequeAll();
 void testHanoiAll();
+void testBinaryHeapAll();
 
 int main() {
     testDynamicArrayAll();
@@ -24,4 +25,5 @@ int main() {
     testQueueAll();
     testDequeAll();
     testHanoiAll();
+    testBinaryHeapAll();
 }

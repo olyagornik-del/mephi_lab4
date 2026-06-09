@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 11)
 add_executable(lab4 main.cpp
         atd/BinaryHeap.h)
 
-add_executable(lab3_tests
+add_executable(lab4_tests
         tests/test.cpp
         tests/testDynamicArray.cpp
         tests/testLinkedList.cpp
@@ -29,4 +29,5 @@ add_executable(lab3_tests
         tests/testQueue.cpp
         tests/testDeque.cpp
         tests/testHanoi.cpp
+        tests/testBinaryHeap.cpp
 )
