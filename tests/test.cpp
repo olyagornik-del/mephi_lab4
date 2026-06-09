@@ -7,6 +7,8 @@ void testImmutableAll();
 void testBitSequenceAll();
 void testICollectionAll();
 void testStackAll();
+void testQueueAll();
+void testDequeAll();
 void testHanoiAll();
 
 int main() {
@@ -19,5 +21,7 @@ int main() {
     testBitSequenceAll();
     testICollectionAll();
     testStackAll();
+    testQueueAll();
+    testDequeAll();
     testHanoiAll();
 }

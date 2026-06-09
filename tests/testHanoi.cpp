@@ -94,10 +94,49 @@ void testHanoiInvalid() {
     printf("  [OK] testHanoiInvalid\n");
 }
 
+void testHanoiMoveLegality() {
+    // каждый ход — между корректными стержнями, и from != to
+    MutableArraySequence<Disk> disks = makeTower(5);
+    Hanoi h(&disks, 0);
+    h.Solve(2);
+
+    for (int i = 0; i < h.MovesCount(); i++) {
+        Move m = h.GetMove(i);
+        assert(m.from >= 0 && m.from <= 2);
+        assert(m.to >= 0 && m.to <= 2);
+        assert(m.from != m.to);
+    }
+    printf("  [OK] testHanoiMoveLegality\n");
+}
+
+void testHanoiStickAccess() {
+    MutableArraySequence<Disk> disks = makeTower(3);
+    Hanoi h(&disks, 0);
+
+    // до Solve: всё на старте, остальные пусты
+    assert(h.Stick(0).Size() == 3);
+    assert(h.Stick(1).IsEmpty());
+    assert(h.Stick(2).IsEmpty());
+    assert(h.MovesCount() == 0);
+
+    // Stick с некорректным rod — исключение
+    bool threw = false;
+    try { h.Stick(-1); } catch (const OutOfRange&) { threw = true; }
+    assert(threw);
+
+    threw = false;
+    try { h.Stick(3); } catch (const OutOfRange&) { threw = true; }
+    assert(threw);
+
+    printf("  [OK] testHanoiStickAccess\n");
+}
+
 void testHanoiAll() {
     printf("=== Тесты Hanoi ===\n");
     testHanoiSolves();
     testHanoiMoveCount();
     testHanoiInvalid();
+    testHanoiMoveLegality();
+    testHanoiStickAccess();
     printf("=== Все тесты пройдены! ===\n\n");
 }
