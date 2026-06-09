@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 4.0)
 project(lab4)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 add_executable(lab4 main.cpp
         atd/BinaryHeap.h
@@ -33,4 +33,9 @@ add_executable(lab4_tests
         tests/testBinaryHeap.cpp
         tests/testFixedQueue.cpp
         tests/testOrdinal.cpp
+        core/Ordinal.h
+        atd/BinaryHeap.h
+        atd/FixedQueue.h
 )
+target_compile_options(lab4_tests PRIVATE -fsanitize=address,undefined -g -O1)
+target_link_options(lab4_tests PRIVATE -fsanitize=address,undefined)
