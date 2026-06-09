@@ -32,4 +32,5 @@ add_executable(lab4_tests
         tests/testHanoi.cpp
         tests/testBinaryHeap.cpp
         tests/testFixedQueue.cpp
+        tests/testOrdinal.cpp
 )
