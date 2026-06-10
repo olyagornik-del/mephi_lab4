@@ -3,7 +3,7 @@
 
 #include <functional> //для class Compare = std::less<T>,
 // то есть если нужна куча откуда берём минимум, то просто BinaryHeap<Т> h;
-// а если нужна куча откуда быстро берём макс, то BinaryHeap<Т, std::greater<int>> h2;
+// а если нужна куча откуда быстро берём макс, то BinaryHeap<Т, std::greater<T>> h2;
 // и живём счастливо (по возможности)
 #include "../core/DynamicArray.h"
 
