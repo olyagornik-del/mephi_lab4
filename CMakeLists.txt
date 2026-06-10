@@ -33,7 +33,12 @@ add_executable(lab4_tests
         tests/testBinaryHeap.cpp
         tests/testFixedQueue.cpp
         tests/testOrdinal.cpp
+        tests/testLazySequence.cpp
+        tests/testGenerator.cpp
         core/Ordinal.h
+        core/Generator.h
+        core/LazySequenceGenerators.h
+        core/LazySequence.h
         atd/BinaryHeap.h
         atd/FixedQueue.h
 )

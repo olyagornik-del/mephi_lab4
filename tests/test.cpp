@@ -13,6 +13,8 @@ void testHanoiAll();
 void testBinaryHeapAll();
 void testFixedQueueAll();
 void testOrdinalAll();
+void testGeneratorAll();
+void testLazySequenceAll();
 
 int main() {
     testDynamicArrayAll();
@@ -30,4 +32,6 @@ int main() {
     testBinaryHeapAll();
     testFixedQueueAll();
     testOrdinalAll();
+    testGeneratorAll();
+    testLazySequenceAll();
 }
