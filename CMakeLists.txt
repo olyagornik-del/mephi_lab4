@@ -38,6 +38,8 @@ add_executable(lab4_tests
         tests/testStreams.cpp
         tests/testOnlineStats.cpp
         tests/testStreamSorter.cpp
+        tests/testOnlineStats.cpp
+        tests/testStreamSorter.cpp
         tasks/OnlineStats.h
         tasks/StreamSorter.h
         core/Lazy/Ordinal.h

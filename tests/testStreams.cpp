@@ -16,6 +16,7 @@ void testSequenceReadStream() {
     Stream.Open();
 
     assert(!Stream.IsEndOfStream());
+    assert(Stream.IsFinite()); // последовательность в памяти конечна
     assert(Stream.GetPosition() == 0);
     assert(Stream.Read() == 10);
     assert(Stream.Read() == 20);
@@ -52,6 +53,7 @@ void testLazyReadStream() {
     Stream.Open();
 
     assert(!Stream.IsEndOfStream());
+    assert(!Stream.IsFinite()); // бесконечный поток честно об этом говорит
     for (int i = 0; i < 1000; i++)
         assert(Stream.Read() == i);
     assert(!Stream.IsEndOfStream()); // всё ещё не конец
@@ -62,6 +64,7 @@ void testLazyReadStream() {
     LazySequence<int> Fin(items, 3);
     LazyReadStream<int> FinStream(&Fin);
     FinStream.Open();
+    assert(FinStream.IsFinite()); // а этот конечен
     assert(FinStream.Read() == 5);
     FinStream.Seek(2);
     assert(FinStream.Read() == 7);

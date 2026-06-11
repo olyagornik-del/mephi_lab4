@@ -25,6 +25,7 @@ public:
     bool IsEndOfStream() const override {
         return pos >= (size_t)seq->GetLength();
     }
+    bool IsFinite() const override { return true; } // последовательность в памяти всегда конечна
     T Read() override {
         if (IsEndOfStream())
             throw EndOfStream();
@@ -64,6 +65,7 @@ public:
             return false; // бесконечный поток не кончается
         return pos >= (size_t)len.GetFinite();
     }
+    bool IsFinite() const override { return seq->GetLength().IsFinite(); } // спрашиваем у ленивого списка
     T Read() override {
         if (IsEndOfStream())
             throw EndOfStream();
@@ -106,6 +108,7 @@ public:
     bool IsEndOfStream() const override {
         return pos >= (size_t)items.GetLength();
     }
+    bool IsFinite() const override { return true; } // строка всегда конечна
     T Read() override {
         if (IsEndOfStream())
             throw EndOfStream();
@@ -148,6 +151,7 @@ public:
     bool IsEndOfStream() const override {
         return !hasNext;
     }
+    bool IsFinite() const override { return true; } // файл на диске конечен
     T Read() override {
         if (!hasNext)
             throw EndOfStream();
