@@ -4,130 +4,112 @@
 
 void printBanner() {
     std::cout << "\n";
-    std::cout << "   _          _      _____  \n";
-    std::cout << "  | |    __ _| |__  |___ /   \n";
-    std::cout << "  | |   / _` | '_ \\   |_ \\  \n";
-    std::cout << "  | |__| (_| | |_) | ___) |    \n";
-    std::cout << "  |_____\\__,_|_.__/ |____/    \n";
+    std::cout << "   _          _      _  _   \n";
+    std::cout << "  | |    __ _| |__  | || |  \n";
+    std::cout << "  | |   / _` | '_ \\ | || |_ \n";
+    std::cout << "  | |__| (_| | |_) ||__   _|\n";
+    std::cout << "  |_____\\__,_|_.__/    |_|  \n";
     std::cout << "\n";
-    std::cout << "  Stack  ·  Queue  ·  Deque  ·  Hanoi  \n";
+    std::cout << "  LazySequence  ·  Ordinal  ·  Streams  \n";
     std::cout << "  ──────────────────────────────────────────  \n\n";
 }
 
-void printADTMenu() {
-    std::cout << "\n  ┌──────────────────────────────────────┐\n";
-    std::cout << "  │  Выберите АТД:                       │\n";
-    std::cout << "  ├──────────────────────────────────────┤\n";
-    std::cout << "  │  1. Стек                             │\n";
-    std::cout << "  │  2. Очередь                          │\n";
-    std::cout << "  │  3. Дек                              │\n";
-    std::cout << "  │  4. Ханойская башня                  │\n";
-    std::cout << "  │  0. Выход                            │\n";
-    std::cout << "  └──────────────────────────────────────┘\n";
+void printMainMenu() {
+    std::cout << "\n  ┌──────────────────────────────────────────────┐\n";
+    std::cout << "  │  Главное меню:                               │\n";
+    std::cout << "  ├──────────────────────────────────────────────┤\n";
+    std::cout << "  │  1. Ленивые последовательности (песочница)   │\n";
+    std::cout << "  │  2. Калькулятор ординалов                    │\n";
+    std::cout << "  │  3. Онлайн-статистика потока (медиана)       │\n";
+    std::cout << "  │  4. Сортировка потока (бинарная куча)        │\n";
+    std::cout << "  │  5. Авто-демо: заготовленные сценарии        │\n";
+    std::cout << "  │  0. Выход                                    │\n";
+    std::cout << "  └──────────────────────────────────────────────┘\n";
     std::cout << "  Выбор: ";
 }
 
 void printTypeMenu() {
-    std::cout << "\n  ┌─────────────────────────────┐\n";
-    std::cout << "  │  Выберите тип элементов:    │\n";
-    std::cout << "  ├─────────────────────────────┤\n";
-    std::cout << "  │  1. int                     │\n";
-    std::cout << "  │  2. double                  │\n";
-    std::cout << "  │  3. bool                    │\n";
-    std::cout << "  └─────────────────────────────┘\n";
-    std::cout << "  Тип: ";
-}
-
-void printStackOps() {
-    std::cout << "\n  ┌──────────────────────────────┐\n";
-    std::cout << "  │  1. Push                     │\n";
-    std::cout << "  │  2. Pop                      │\n";
-    std::cout << "  │  3. Peek                     │\n";
-    std::cout << "  │  4. Map     (x → x*2)        │\n";
-    std::cout << "  │  5. Where   (x ≥ 0)          │\n";
-    std::cout << "  │  6. Reduce  (sum)            │\n";
-    std::cout << "  │  0. <-Назад                  │\n";
-    std::cout << "  └──────────────────────────────┘\n";
+    std::cout << "\n  Тип элементов:\n";
+    std::cout << "  1. int\n";
+    std::cout << "  2. double\n";
     std::cout << "  Выбор: ";
 }
 
-void printStackOpsBool() {
-    std::cout << "\n  ┌──────────────────────────────┐\n";
-    std::cout << "  │  1. Push                     │\n";
-    std::cout << "  │  2. Pop                      │\n";
-    std::cout << "  │  3. Peek                     │\n";
-    std::cout << "  │  4. Map     (NOT)            │\n";
-    std::cout << "  │  5. Where   (x == true)      │\n";
-    std::cout << "  │  6. Reduce  (AND)            │\n";
-    std::cout << "  │  0. <-Назад                  │\n";
-    std::cout << "  └──────────────────────────────┘\n";
+void printLazyCreateMenu() {
+    std::cout << "\n  Создание списка:\n";
+    std::cout << "  1. ввести элементы вручную (конечный)\n";
+    std::cout << "  2. натуральные числа 0,1,2,...      (бесконечный)\n";
+    std::cout << "  3. арифм. прогрессия a, a+d, a+2d,...(бесконечный)\n";
+    std::cout << "  4. Фибоначчи 0,1,1,2,3,5,...        (бесконечный)\n";
+    std::cout << "  5. факториалы 1,1,2,6,24,...        (бесконечный)\n";
     std::cout << "  Выбор: ";
 }
 
-void printQueueOps() {
-    std::cout << "\n  ┌──────────────────────────────┐\n";
-    std::cout << "  │  1. Enqueue                  │\n";
-    std::cout << "  │  2. Dequeue                  │\n";
-    std::cout << "  │  3. Peek                     │\n";
-    std::cout << "  │  4. Map     (x → x*2)        │\n";
-    std::cout << "  │  5. Where   (x ≥ 0)          │\n";
-    std::cout << "  │  6. Reduce  (sum)            │\n";
-    std::cout << "  │  0. <-Назад                  │\n";
-    std::cout << "  └──────────────────────────────┘\n";
+void printLazyOps() {
+    std::cout << "\n  Операции над списком:\n";
+    std::cout << "   1. показать первые N\n";
+    std::cout << "   2. Get(i)\n";
+    std::cout << "   3. GetByOrdinal(k, n) — прыжок через ω\n";
+    std::cout << "   4. Append      5. Prepend     6. InsertAt\n";
+    std::cout << "   7. Concat (с таким же типом)\n";
+    std::cout << "   8. Map         9. Where      10. GetSubsequence\n";
+    std::cout << "  11. Reduce (сумма, только конечные)\n";
+    std::cout << "  12. склейка с последовательностью другого типа\n";
+    std::cout << "  13. пересоздать список\n";
+    std::cout << "   0. назад\n";
     std::cout << "  Выбор: ";
 }
 
-void printQueueOpsBool() {
-    std::cout << "\n  ┌──────────────────────────────┐\n";
-    std::cout << "  │  1. Enqueue                  │\n";
-    std::cout << "  │  2. Dequeue                  │\n";
-    std::cout << "  │  3. Peek                     │\n";
-    std::cout << "  │  4. Map     (NOT)            │\n";
-    std::cout << "  │  5. Where   (x == true)      │\n";
-    std::cout << "  │  6. Reduce  (AND)            │\n";
-    std::cout << "  │  0. <-Назад                  │\n";
-    std::cout << "  └──────────────────────────────┘\n";
+void printOrdinalHelp() {
+    std::cout << "\n  ── Как записывать ординалы ──────────────────────\n";
+    std::cout << "  Ординал имеет вид  ω*k + n  и вводится двумя числами: k n\n";
+    std::cout << "    0 5  →  5      (обычное конечное число)\n";
+    std::cout << "    1 0  →  ω      (первое бесконечное)\n";
+    std::cout << "    1 3  →  ω+3    (3-й элемент после бесконечного блока)\n";
+    std::cout << "    2 7  →  ω*2+7\n";
+    std::cout << "  ─────────────────────────────────────────────────\n";
+}
+
+void printOrdinalMenu() {
+    std::cout << "\n  Калькулятор ординалов:\n";
+    std::cout << "  1. сложить два ординала (a+b и b+a)\n";
+    std::cout << "  2. сравнить два ординала\n";
+    std::cout << "  3. демо некоммутативности (заготовка)\n";
+    std::cout << "  0. назад\n";
     std::cout << "  Выбор: ";
 }
 
-void printDequeOps() {
-    std::cout << "\n  ┌──────────────────────────────┐\n";
-    std::cout << "  │  1. PushFront                │\n";
-    std::cout << "  │  2. PushBack                 │\n";
-    std::cout << "  │  3. PopFront                 │\n";
-    std::cout << "  │  4. PopBack                  │\n";
-    std::cout << "  │  5. PeekFront                │\n";
-    std::cout << "  │  6. PeekBack                 │\n";
-    std::cout << "  │  7. Map     (x → x*2)        │\n";
-    std::cout << "  │  8. Where   (x ≥ 0)          │\n";
-    std::cout << "  │  9. Reduce  (sum)            │\n";
-    std::cout << "  │  0. <-Назад                  │\n";
-    std::cout << "  └──────────────────────────────┘\n";
+void printStatsMenu() {
+    std::cout << "\n  Онлайн-статистика (медиана/мин/макс/среднее):\n";
+    std::cout << "  1. ручной режим — вводи числа, статистика после каждого\n";
+    std::cout << "  2. авто: случайные данные (сколько, диапазон, зерно случайности)\n";
+    std::cout << "  3. авто: первые N бесконечного потока (натуральные/Фибоначчи/прогрессия)\n";
+    std::cout << "  4. авто: числа из файла (по одному в строке)\n";
+    std::cout << "  0. назад\n";
     std::cout << "  Выбор: ";
 }
 
-void printDequeOpsBool() {
-    std::cout << "\n  ┌──────────────────────────────┐\n";
-    std::cout << "  │  1. PushFront                │\n";
-    std::cout << "  │  2. PushBack                 │\n";
-    std::cout << "  │  3. PopFront                 │\n";
-    std::cout << "  │  4. PopBack                  │\n";
-    std::cout << "  │  5. PeekFront                │\n";
-    std::cout << "  │  6. PeekBack                 │\n";
-    std::cout << "  │  7. Map     (NOT)            │\n";
-    std::cout << "  │  8. Where   (x == true)      │\n";
-    std::cout << "  │  9. Reduce  (AND)            │\n";
-    std::cout << "  │  0. <-Назад                  │\n";
-    std::cout << "  └──────────────────────────────┘\n";
-    std::cout << "  Выбор: ";
+void printFileHelp() {
+    std::cout << "\n  ── Требования к файлу с числами ─────────────────\n";
+    std::cout << "  Обычный текстовый файл: одно целое число в строке,\n";
+    std::cout << "  без пустых строк и посторонних символов:\n";
+    std::cout << "      42\n";
+    std::cout << "      -7\n";
+    std::cout << "      100\n";
+    std::cout << "  Для файлов в проекте есть папка data/, там лежит пример.\n";
+    std::cout << "  Путь — абсолютный или от рабочей папки запуска:\n";
+    std::cout << "    запуск из терминала в корне проекта:  data/sample_numbers.txt\n";
+    std::cout << "    запуск из CLion (раб. папка cmake-build-debug): ../data/sample_numbers.txt\n";
+    std::cout << "  Если файл огромный (гигабайты) — для сортировки выбирай режим external,\n";
+    std::cout << "  иначе все числа поедут в оперативку.\n";
+    std::cout << "  ─────────────────────────────────────────────────\n";
 }
 
-void printHanoiPrompt() {
-    std::cout << "\n  ┌──────────────────────────────────────┐\n";
-    std::cout << "  │   Ханойская башня                    │\n";
-    std::cout << "  ├──────────────────────────────────────┤\n";
-    std::cout << "  │  Введи число дисков (1–7),           │\n";
-    std::cout << "  │  стартовый стержень (0/1/2)          │\n";
-    std::cout << "  │  и целевой стержень (0/1/2).         │\n";
-    std::cout << "  └──────────────────────────────────────┘\n";
+void printSortSourceMenu() {
+    std::cout << "\n  Сортировка потока — источник данных:\n";
+    std::cout << "  1. ввести вручную\n";
+    std::cout << "  2. случайные данные (сколько, диапазон, зерно случайности)\n";
+    std::cout << "  3. файл (по одному числу в строке)\n";
+    std::cout << "  0. назад\n";
+    std::cout << "  Выбор: ";
 }

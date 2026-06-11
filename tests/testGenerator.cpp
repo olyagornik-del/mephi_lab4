@@ -155,7 +155,20 @@ void testWhereGenerator() {
     Generator<int>* NatEven = new WhereGenerator<int>(MakeNaturals(), even);
     assert(NatEven->GetLength() == Ordinal::Omega());
     assert(NatEven->Get(Ordinal::Finite(3)) == 6);
+
+    // ω-индекс за пределами фильтра — исключение, а не молчаливый 0-й элемент
+    bool threw = false;
+    try { NatEven->Get(Ordinal::Omega(6)); } catch (const OutOfRange&) { threw = true; }
+    assert(threw);
     delete NatEven;
+
+    // фильтр СОХРАНЯЕТ сегменты: where(A ++ B) = where(A) ++ where(B)
+    Generator<int>* ConcatEven = new WhereGenerator<int>(
+        new ConcatGenerator<int>(MakeNaturals(), MakeNaturalsFrom(100)), even);
+    assert(ConcatEven->GetLength() == Ordinal::Omega(2)); // вторая бесконечность не потерялась
+    assert(ConcatEven->Get(Ordinal::Finite(3)) == 6);             // 3-й чётный первого сегмента
+    assert(ConcatEven->Get(Ordinal::FromParts(1, 2)) == 104);     // 2-й чётный второго: 100,102,104
+    delete ConcatEven;
 
     printf("  [OK] testWhereGenerator\n");
 }

@@ -41,8 +41,8 @@ public:
 
     void Open() override {
         file.open(filename);
-        if (!file.is_open())
-            throw InvalidArgument("файл не открылся для записи");
+        if (!file.is_open()) // частая причина: папки из пути не существует (ofstream её не создаст)
+            throw InvalidArgument(("файл не открылся для записи: " + filename).c_str());
     }
     void Close() override {
         if (file.is_open())

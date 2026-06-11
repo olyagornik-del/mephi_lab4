@@ -35,6 +35,15 @@ int inputSize() {
     return n;
 }
 
+int scanIntInRange(int lo, int hi) {
+    int x;
+    while (true) {
+        if (!scanInt(x)) continue; // не число — scanInt уже ругнулся, пробуем снова
+        if (x >= lo && x <= hi) return x;
+        std::cout << "  Введите число от " << lo << " до " << hi << ": ";
+    }
+}
+
 template <> bool scanValue<int>(int &out) { return scanInt(out); }
 template <> bool scanValue<double>(double &out) { return scanDouble(out); }
 template <> bool scanValue<bool>(bool &out) {

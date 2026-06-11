@@ -351,6 +351,21 @@ void testLazySequenceWhere() {
     assert(NatEven->Get(3) == 6);
     delete NatEven;
 
+    // where поверх склейки двух бесконечных — вторая бесконечность не теряется
+    int seedB[] = {100};
+    MutableArraySequence<int> SeedB(seedB, 1);
+    std::function<int(Sequence<int>*)> ruleB = [](Sequence<int>* s) {
+        return s->GetLast() + 1;
+    };
+    LazySequence<int> B(ruleB, &SeedB); // 100,101,...
+    LazySequence<int>* AB = Nat.Concat(&B);
+    LazySequence<int>* ABEven = AB->Where(even);
+    assert(ABEven->GetLength() == Ordinal::Omega(2));
+    assert(ABEven->Get(3) == 6); // чётные первого сегмента
+    assert(ABEven->GetByOrdinal(Ordinal::FromParts(1, 2)) == 104); // чётные второго: 100,102,104
+    delete AB;
+    delete ABEven;
+
     printf("  [OK] testLazySequenceWhere\n");
 }
 

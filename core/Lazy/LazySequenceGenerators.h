@@ -106,30 +106,35 @@ private:
 public:
     WhereGenerator(Generator<T>* source, std::function<bool(const T&)> pred)
         : source(source), pred(pred), len() {
+        // сегментная структура сохраняется: where(A ++ B) ведёт себя как where(A) ++ where(B).
+        // в бесконечных сегментах считаем, что подходящих бесконечно много,
+        // а конечный хвост (после всех ω) честно пересчитываем
         Ordinal srcLen = source->GetLength();
-        if (srcLen.IsInfinite()) {
-            len = Ordinal::Omega(); // допускаем бесконечно много подходящих
-        } else {
-            unsigned long long cnt = 0;
-            unsigned long long n = srcLen.GetFinite();
-            for (unsigned long long i = 0; i < n; i++)
-                if (pred(source->Get(Ordinal::Finite(i))))
-                    cnt++;
-            len = Ordinal::Finite(cnt);
-        }
+        unsigned long long segs = srcLen.GetOmegaCoeff();
+        unsigned long long tailLen = srcLen.GetFinite();
+        unsigned long long cnt = 0;
+        for (unsigned long long i = 0; i < tailLen; i++)
+            if (pred(source->Get(Ordinal::FromParts(segs, i))))
+                cnt++;
+        len = Ordinal::FromParts(segs, cnt);
     }
     //для Clone — длина уже известна
     WhereGenerator(Generator<T>* source, std::function<bool(const T&)> pred, const Ordinal& len)
         : source(source), pred(pred), len(len) {}
 
     T Get(const Ordinal& index) override {
-        unsigned long long target = index.GetFinite(); // нужен target-й подходящий
+        // без этой проверки ω-часть индекса молча терялась и ω*6 выдавал 0-й элемент
+        if (!(index < len))
+            throw OutOfRange("индекс за пределами отфильтрованного списка");
+        unsigned long long seg = index.GetOmegaCoeff(); // в каком сегменте источника ищем
+        unsigned long long target = index.GetFinite();  // какой по счёту подходящий
         Ordinal srcLen = source->GetLength();
-        unsigned long long n = srcLen.IsInfinite() ? 0 : srcLen.GetFinite();
+        bool segInfinite = seg < srcLen.GetOmegaCoeff(); // false — мы в конечном хвосте
+        unsigned long long n = srcLen.GetFinite();
         unsigned long long matched = 0;
         unsigned long long i = 0;
-        while (srcLen.IsInfinite() || i < n) {
-            T v = source->Get(Ordinal::Finite(i));
+        while (segInfinite || i < n) {
+            T v = source->Get(Ordinal::FromParts(seg, i));
             if (pred(v)) {
                 if (matched == target)
                     return v; // не знаю как обойти если таргет никогда не достижим (tagret = 11 x<10 x = 1, 2, 3,...)

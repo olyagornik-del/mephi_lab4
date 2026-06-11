@@ -172,7 +172,7 @@ public:
     void Open() override {
         file.open(filename);
         if (!file.is_open())
-            throw InvalidArgument("файл не открылся для чтения");
+            throw InvalidArgument(("файл не открылся для чтения: " + filename).c_str());
         Prime();
     }
     void Close() override {

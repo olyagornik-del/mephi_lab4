@@ -38,8 +38,6 @@ add_executable(lab4_tests
         tests/testStreams.cpp
         tests/testOnlineStats.cpp
         tests/testStreamSorter.cpp
-        tests/testOnlineStats.cpp
-        tests/testStreamSorter.cpp
         tasks/OnlineStats.h
         tasks/StreamSorter.h
         core/Lazy/Ordinal.h
@@ -54,3 +52,28 @@ add_executable(lab4_tests
 )
 target_compile_options(lab4_tests PRIVATE -fsanitize=address,undefined -g -O1)
 target_link_options(lab4_tests PRIVATE -fsanitize=address,undefined)
+
+# Консольный UI: песочница LazySequence, ординалы, медиана, сортировка, авто-демо
+add_executable(lab4_ui
+        ui/main.cpp
+        ui/menu.cpp
+        ui/menu.h
+        ui/scanValues.cpp
+        ui/scanValues.h
+        ui/Operations.cpp
+        ui/OpsLazy.cpp
+        ui/OpsStreams.cpp
+        ui/sections.h
+        my_except.h
+        core/Lazy/Ordinal.h
+        core/Lazy/Generator.h
+        core/Lazy/LazySequenceGenerators.h
+        core/Lazy/LazySequence.h
+        core/Streams/ParentsStream.h
+        core/Streams/ReadStreams.h
+        core/Streams/WriteStreams.h
+        tasks/OnlineStats.h
+        tasks/StreamSorter.h
+        atd/BinaryHeap.h
+)
+target_compile_options(lab4_ui PRIVATE -O2)

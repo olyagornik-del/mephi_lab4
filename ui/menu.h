@@ -1,20 +1,22 @@
-#ifndef LAB3_MENU_H
-#define LAB3_MENU_H
+#ifndef LAB4_MENU_H
+#define LAB4_MENU_H
 
 void printBanner();
-void printADTMenu();
+void printMainMenu();
 void printTypeMenu();
 
-// Меню операций стека. Для bool — отдельный вариант (Map/Where/Reduce имеют другой смысл).
-void printStackOps();
-void printStackOpsBool();
+// раздел ленивых последовательностей
+void printLazyCreateMenu();
+void printLazyOps();
 
-void printQueueOps();
-void printQueueOpsBool();
+// подсказка как записывать ординалы (ω*k + n вводится двумя числами k n)
+void printOrdinalHelp();
+void printOrdinalMenu();
 
-void printDequeOps();
-void printDequeOpsBool();
+// раздел потоков
+void printStatsMenu();
+void printSortSourceMenu();
+// требования к файлу с числами и где его искать
+void printFileHelp();
 
-void printHanoiPrompt();
-
-#endif //LAB3_MENU_H
+#endif //LAB4_MENU_H
