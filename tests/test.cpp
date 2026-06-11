@@ -15,6 +15,7 @@ void testFixedQueueAll();
 void testOrdinalAll();
 void testGeneratorAll();
 void testLazySequenceAll();
+void testStreamsAll();
 
 int main() {
     testDynamicArrayAll();
@@ -34,4 +35,5 @@ int main() {
     testOrdinalAll();
     testGeneratorAll();
     testLazySequenceAll();
+    testStreamsAll();
 }

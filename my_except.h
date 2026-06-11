@@ -41,4 +41,11 @@ public:
 
 
 
+// достигнут конец потока — дальнейшее чтение невозможно
+class EndOfStream : public ParentForErrors {
+public:
+    EndOfStream() : ParentForErrors("достигнут конец потока") {}
+    explicit EndOfStream(const char* msg) : ParentForErrors(msg) {}
+};
+
 #endif //LAB2_MY_STDEXCEPT_H

@@ -35,10 +35,14 @@ add_executable(lab4_tests
         tests/testOrdinal.cpp
         tests/testLazySequence.cpp
         tests/testGenerator.cpp
+        tests/testStreams.cpp
         core/Ordinal.h
         core/Generator.h
         core/LazySequenceGenerators.h
         core/LazySequence.h
+        core/ParentsStream.h
+        core/ReadStreams.h
+        core/WriteStreams.h
         atd/BinaryHeap.h
         atd/FixedQueue.h
 )
