@@ -2,7 +2,7 @@
 #include <cstdio> //printf
 #include <functional> // std::function
 
-#include "../core/LazySequence.h"
+#include "../core/Lazy/LazySequence.h"
 #include "../core/Sequences/MutableArraySequence.h"
 
 void testLazySequenceFromArray() {

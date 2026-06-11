@@ -3,10 +3,10 @@
 #include <functional> // std::function
 #include <string>
 
-#include "../core/ParentsStream.h"
-#include "../core/ReadStreams.h"
-#include "../core/WriteStreams.h"
-#include "../core/LazySequence.h"
+#include "../core/Streams/ParentsStream.h"
+#include "../core/Streams/ReadStreams.h"
+#include "../core/Streams/WriteStreams.h"
+#include "../core/Lazy/LazySequence.h"
 #include "../core/Sequences/MutableArraySequence.h"
 
 void testSequenceReadStream() {

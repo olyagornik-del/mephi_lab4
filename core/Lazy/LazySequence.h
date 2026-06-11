@@ -3,12 +3,12 @@
 
 #include <functional>
 #include <cstddef> // size_t
-#include "../my_except.h"
+#include "../../my_except.h"
 #include "Ordinal.h"
 #include "Generator.h"
 #include "LazySequenceGenerators.h"
-#include "Sequences/Sequence.h"
-#include "Sequences/MutableArraySequence.h"
+#include "../Sequences/Sequence.h"
+#include "../Sequences/MutableArraySequence.h"
 
 // ленивый список — тонкая обёртка над генератором.
 // каждая операция оборачивает текущий генератор в новый (map/concat/insert/...)

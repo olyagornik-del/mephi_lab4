@@ -2,8 +2,8 @@
 #include <cstdio> //printf
 #include <functional> // std::function
 
-#include "../core/Generator.h"
-#include "../core/LazySequenceGenerators.h"
+#include "../core/Lazy/Generator.h"
+#include "../core/Lazy/LazySequenceGenerators.h"
 #include "../core/Sequences/MutableArraySequence.h"
 
 // натуральные 0,1,2,... (рекуррентный генератор, seed пуст)

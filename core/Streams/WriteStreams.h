@@ -5,7 +5,7 @@
 #include <string> // std::string — имя файла, строка-результат сериализации
 #include <fstream> // std::ofstream — запись файла
 #include "ParentsStream.h"
-#include "Sequences/MutableArraySequence.h"
+#include "../Sequences/MutableArraySequence.h"
 
 // запись в последовательность в памяти; результат можно забрать через GetResult
 template <class T>

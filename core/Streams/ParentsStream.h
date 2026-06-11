@@ -2,7 +2,7 @@
 #define LAB4_PARENTSSTREAM_H
 
 #include <cstddef> // size_t
-#include "../my_except.h"
+#include "../../my_except.h"
 
 // Родитель поток ТОЛЬКО ДЛЯ ЧТЕНИЯ: последовательный доступ, чтение «съедает» элемент.
 // Конкретные источники (последовательность, ленивый список, файл, строка) — ReadStreams.h
@@ -15,6 +15,7 @@ public:
     ReadOnlyStream<T>& operator=(const ReadOnlyStream<T>&) = delete;
 
     virtual bool IsEndOfStream() const = 0; // можно ли достигнуть конец
+    virtual bool IsFinite() const = 0; // конечен ли поток в принципе (бесконечный никогда не кончится)
     virtual T Read() = 0;// прочитать текущий элемент и перейти к следующему
     virtual size_t GetPosition() const = 0; // сколько элементов прочитано
     virtual bool IsCanSeek() const = 0; // можно ли перемещаться без чтения

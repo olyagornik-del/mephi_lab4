@@ -1,7 +1,7 @@
 #include <cassert> // assert
 #include <cstdio> //printf
 
-#include "../core/Ordinal.h"
+#include "../core/Lazy/Ordinal.h"
 
 void testOrdinalCreate() {
     // фабрики собирают нужные части

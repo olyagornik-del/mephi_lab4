@@ -16,6 +16,8 @@ void testOrdinalAll();
 void testGeneratorAll();
 void testLazySequenceAll();
 void testStreamsAll();
+void testOnlineStatsAll();
+void testStreamSorterAll();
 
 int main() {
     testDynamicArrayAll();
@@ -36,4 +38,6 @@ int main() {
     testGeneratorAll();
     testLazySequenceAll();
     testStreamsAll();
+    testOnlineStatsAll();
+    testStreamSorterAll();
 }

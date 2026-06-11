@@ -1,7 +1,7 @@
 #ifndef LAB4_ORDINAL_H
 #define LAB4_ORDINAL_H
 
-#include "../my_except.h"
+#include "../../my_except.h"
 #include <string>
 
 // порядковое число вида ω·omega_coeff + finite

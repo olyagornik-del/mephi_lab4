@@ -6,9 +6,9 @@
 #include <sstream> // std::istringstream — читать из строки как из потока (резка по пробелам)
 #include <fstream> // std::ifstream — чтение файла
 #include "ParentsStream.h"
-#include "LazySequence.h"
-#include "Sequences/Sequence.h"
-#include "Sequences/MutableArraySequence.h"
+#include "../Lazy/LazySequence.h"
+#include "../Sequences/Sequence.h"
+#include "../Sequences/MutableArraySequence.h"
 
 // чтение из обычной последовательности (данные в памяти, можно прыгать и возвращаться)
 template <class T>

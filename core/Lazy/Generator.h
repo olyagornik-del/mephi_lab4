@@ -3,10 +3,10 @@
 
 #include <functional>
 #include <cstddef> // size_t
-#include "../my_except.h"
+#include "../../my_except.h"
 #include "Ordinal.h"
-#include "Sequences/Sequence.h"
-#include "Sequences/MutableArraySequence.h"
+#include "../Sequences/Sequence.h"
+#include "../Sequences/MutableArraySequence.h"
 
 // базовый генератор: даёт элемент по ОРДИНАЛЬНОМУ индексу и знает свою длину.
 // от него наследуются конкретные виды (последовательность, рекуррентность, склейка, map и т.д.)
