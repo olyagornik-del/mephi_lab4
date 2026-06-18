@@ -1,7 +1,7 @@
 #include <cassert> // assert
 #include <cstdio> //printf
 
-#include "../atd/Hanoi.h"
+#include "../tasks/Hanoi.h"
 
 // собрать башню из n дисков: размеры n, n-1, ..., 1 (большой первым -> ляжет вниз)
 static MutableArraySequence<Disk> makeTower(int n) {

@@ -2,7 +2,7 @@
 #define LAB3_HANOI_H
 
 #include "../my_except.h"
-#include "Stack.h"
+#include "../atd/Stack.h"
 #include "../core/Sequences/MutableArraySequence.h"
 
 enum class Shape { Circle, Square, Triangle };
